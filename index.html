@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Badarpuria - Cybersecurity Portfolio</title>
+
+    <!-- Meta tags -->
+    <meta name="description" content="Aditya Badarpuria's Cybersecurity Portfolio - Aspiring Penetration Tester & SOC Analyst">
+    <meta name="keywords" content="Aditya Badarpuria, cybersecurity, penetration testing, SOC analyst, web security, VAPT">
+    <meta name="author" content="Aditya Badarpuria">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: #1c1c1c;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: #333;
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header .logo span {
+            color: #007bff;
+        }
+
+        .header .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .header .nav-menu li {
+            margin: 0;
+        }
+
+        .header .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .header .nav-menu a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .header .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+
+            .header .nav-menu.show {
+                display: flex;
+            }
+
+            .header .nav-menu li {
+                margin: 5px 0;
+            }
+
+            .header .nav-menu a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+        }
+
+        /* Banner Area */
+        .banner-area {
+            position: relative;
+            height: 100vh;
+            background: url('images/bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .welcome-text {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-text .img-area img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .welcome-text h3 {
+            font-size: 2.5em;
+            margin: 10px 0;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .headline-wrapper {
+            font-size: 1.3em;
+            line-height: 1.5;
+            color: #00aaff;
+            position: relative;
+            min-height: 60px;
+            margin: 20px 0;
+        }
+
+        .headline-wrapper .line {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .headline-wrapper .line.visible {
+            opacity: 1;
+        }
+
+        .social-icon {
+            margin: 20px 0;
+        }
+
+        .social-icon ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icon ul li {
+            margin: 0 10px;
+        }
+
+        .social-icon ul li a {
+            color: #007bff;
+            font-size: 28px;
+            transition: color 0.3s;
+        }
+
+        .social-icon ul li a:hover {
+            color: #00aaff;
+        }
+
+        .mouse-scroll {
+            display: inline-block;
+            margin-top: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .mouse {
+            width: 24px;
+            height: 40px;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            position: relative;
+            display: inline-block;
+            animation: bounce 1.5s infinite;
+        }
+
+        .mouse-movement {
+            width: 4px;
+            height: 8px;
+            background: #00aaff;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: mouseMovement 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes mouseMovement {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 24px; opacity: 0; }
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .section-title span {
+            color: #007bff;
+        }
+
+        /* About Section */
+        .about-area {
+            background-color: #121212;
+            padding: 80px 20px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 1.8em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #d3d3d3;
+            margin-bottom: 15px;
+        }
+
+        .about-text .btn-a {
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #007bff;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 1em;
+        }
+
+        .about-text .btn-a:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Education Section */
+        .education-area {
+            background-color: #1c1c1c;
+            padding: 80px 20px;
+        }
+
+        .education-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .education-card {
+            background-color: #242424;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .education-card h3 {
+            color: #00aaff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .education-card h4 {
+            color: #e0e0e0;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .education-card span {
+            display: inline-block;
+            font-size: 0.95em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Skills Section */
+        .skills-area {
+            background-color: #121212;
+            padding: 80px 20px;
+        }
+
+        .skills-category {
+            margin-bottom: 40px;
+        }
+
+        .skills-category h3 {
+            color: #ffaa00;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background-color: #242424;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+
+        .skill-item h4 {
+            font-size: 1.1em;
+            color: #00aaff;
+            margin: 0;
+        }
+
+        /* Projects Section */
+        .projects-area {
+            background-color: #1c1c1c;
+            padding: 80px 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background-color: #242424;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card h3 {
+            color: #00aaff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #bbbbbb;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #00aaff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #007bff;
+        }
+
+        /* Focus Areas Section */
+        .focus-area {
+            background-color: #121212;
+            padding: 80px 20px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .focus-card {
+            background-color: #242424;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            background-color: #2a2a2a;
+        }
+
+        .focus-card i {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .focus-card h3 {
+            color: #00aaff;
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        .footer .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer .social-links a {
+            color: #007bff;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .footer .social-links a:hover {
+            color: #00aaff;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer .back-to-top:hover {
+            color: #00aaff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .welcome-text h3 {
+                font-size: 2em;
+            }
+
+            .headline-wrapper {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header .logo {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .welcome-text {
+                padding: 20px;
+            }
+
+            .welcome-text .img-area img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Aditya <span>Badarpuria</span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#focus">Focus Areas</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Banner Area -->
+    <div class="banner-area" id="home">
+        <div id="particles-js"></div>
+        <div class="welcome-text">
+            <div class="img-area">
+                <img src="images/profile.png" alt="Aditya Badarpuria">
+            </div>
+            <h3>Aditya Badarpuria</h3>
+            <div class="headline-wrapper">
+                <div class="line">Cyber Security Intern</div>
+                <div class="line">Aspiring Penetration Tester</div>
+                <div class="line">SOC Analyst</div>
+                <div class="line">Web Application Security</div>
+            </div>
+            <div class="social-icon">
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/aditya-badarpuria" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/ADITYA160803" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+            <a class="mouse-scroll" href="#about">
+                <span class="mouse">
+                    <span class="mouse-movement"></span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="about-area">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="images/about.png" alt="About Aditya">
+                </div>
+                <div class="about-text">
+                    <h2>Cyber Security Intern | Aspiring Penetration Tester & SOC Analyst</h2>
+                    <p>
+                        I am an aspiring penetration tester and SOC analyst with a strong focus on web application security and real-world attack techniques. 
+                        My goal is to build deep practical expertise in VAPT and SOC fundamentals and grow into a security professional who understands both 
+                        how systems are attacked and how they are defended.
+                    </p>
+                    <p>
+                        Currently pursuing my Master's in Cyber Security at NFSU, I am dedicated to learning the latest security methodologies, tools, 
+                        and techniques to protect organizations from ever-evolving cyber threats.
+                    </p>
+                    <a href="#skills" class="btn-a">My Skills</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div id="education" class="education-area">
+        <div class="container">
+            <h2 class="section-title">My <span>Education</span></h2>
+            <div class="education-cards">
+                <div class="education-card">
+                    <h3>National Forensic Sciences University (NFSU)</h3>
+                    <h4>Master of Science in Cyber Security</h4>
+                    <span>2025 - 2027</span>
+                    <p style="color: #bbbbbb; margin-top: 15px;">
+                        Advanced studies in cyber security, digital forensics, and information security. Specializing in penetration testing, 
+                        security operations, and cyber defense strategies.
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h3>Indus University</h3>
+                    <h4>Bachelor of Computer Application (BCA)</h4>
+                    <span>2021 - 2024</span>
+                    <p style="color: #bbbbbb; margin-top: 15px;">
+                        Comprehensive foundation in computer science, programming, and application development. Built strong technical skills 
+                        in software development and database management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div id="skills" class="skills-area">
+        <div class="container">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            
+            <div class="skills-category">
+                <h3>Network & Security Concepts</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><h4>Network Security Fundamentals</h4></div>
+                    <div class="skill-item"><h4>TCP/IP, DNS, HTTP/HTTPS</h4></div>
+                    <div class="skill-item"><h4>Traffic Analysis & Packet Inspection</h4></div>
+                    <div class="skill-item"><h4>Malware & Phishing Awareness</h4></div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Web & Application Security</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><h4>OWASP Top 10</h4></div>
+                    <div class="skill-item"><h4>Web Application Vulnerability Analysis</h4></div>
+                    <div class="skill-item"><h4>Basic Penetration Testing Concepts</h4></div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Security Tools</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><h4>Burp Suite</h4></div>
+                    <div class="skill-item"><h4>OWASP ZAP</h4></div>
+                    <div class="skill-item"><h4>Nmap</h4></div>
+                    <div class="skill-item"><h4>Wireshark</h4></div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Programming & Technical Skills</h3>
+                <div class="skills-list">
+                    <div class="skill-item"><h4>C, C++</h4></div>
+                    <div class="skill-item"><h4>Java</h4></div>
+                    <div class="skill-item"><h4>ASP.NET</h4></div>
+                    <div class="skill-item"><h4>SQL</h4></div>
+                    <div class="skill-item"><h4>Shell Scripting</h4></div>
+                    <div class="skill-item"><h4>Android Development</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="projects-area">
+        <div class="container">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>AI-Based Spam Email Detection</h3>
+                    <p>
+                        Machine Learning & Deep Learning-based spam classifier with text preprocessing and feature extraction. 
+                        Implemented multiple models including Naive Bayes, Logistic Regression, and Linear SVM. Deep Learning 
+                        models include ANN & CNN. Deployed as a Flask web application for real-time spam detection.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">TensorFlow/Keras</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">HTML/CSS</span>
+                    </div>
+                    <a href="https://github.com/ADITYA160803/AI-Project" target="_blank" class="project-link">
+                        <i class="fa fa-github"></i> View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Web-Based Timetable Generator</h3>
+                    <p>
+                        Automated timetable generation system with optimized classroom, faculty, and time allocation. 
+                        Features role-based access control for students, faculty, and administrators. Streamlines the 
+                        scheduling process with intelligent conflict resolution.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">CSS</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Focus Areas Section -->
+    <div id="focus" class="focus-area">
+        <div class="container">
+            <h2 class="section-title">Focus <span>Areas</span></h2>
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <i class="fa fa-shield"></i>
+                    <h3>Cyber Security</h3>
+                </div>
+                <div class="focus-card">
+                    <i class="fa fa-search"></i>
+                    <h3>Cyber / Computer Forensics</h3>
+                </div>
+                <div class="focus-card">
+                    <i class="fa fa-eye"></i>
+                    <h3>Counterterrorism</h3>
+                </div>
+                <div class="focus-card">
+                    <i class="fa fa-code"></i>
+                    <h3>Web Application Security</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <ul class="social-links">
+                <li><a href="https://github.com/ADITYA160803" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/aditya-badarpuria" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+            <p>&copy; 2026 Aditya Badarpuria. All Rights Reserved.</p>
+            <a href="#home" class="back-to-top">Back to Top ↑</a>
+        </div>
+    </footer>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 150,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            var menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Rotating Text Animation
+        let currentLine = 0;
+        const lines = document.querySelectorAll('.headline-wrapper .line');
+        
+        function rotateText() {
+            lines[currentLine].classList.remove('visible');
+            currentLine = (currentLine + 1) % lines.length;
+            lines[currentLine].classList.add('visible');
+        }
+
+        // Initialize first line
+        lines[0].classList.add('visible');
+        
+        // Rotate every 3 seconds
+        setInterval(rotateText, 3000);
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
