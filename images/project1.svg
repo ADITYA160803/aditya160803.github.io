@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0b2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d1b4e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- Shield Icon -->
+  <path d="M400 100 L550 160 V300 C550 420 480 500 400 540 C320 500 250 420 250 300 V160 Z" 
+        fill="none" stroke="#7000ff" stroke-width="10" filter="url(#glow)"/>
+        
+  <!-- Mail Icon -->
+  <rect x="300" y="220" width="200" height="140" rx="10" ry="10" 
+        fill="none" stroke="#00ff00" stroke-width="8" filter="url(#glow)"/>
+  <path d="M300 220 L400 290 L500 220" stroke="#00ff00" stroke-width="8" fill="none" filter="url(#glow)"/>
+  
+  <!-- "SPAM" Text -->
+  <text x="400" y="450" dominant-baseline="middle" text-anchor="middle" 
+        font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#ff0055" filter="url(#glow)">
+    AI SPAM DETECTOR
+  </text>
+  
+  <!-- AI Brain Nodes -->
+  <circle cx="650" cy="150" r="8" fill="#00ffff" opacity="0.6"/>
+  <circle cx="600" cy="200" r="5" fill="#00ffff" opacity="0.8"/>
+  <circle cx="700" cy="250" r="6" fill="#00ffff" opacity="0.5"/>
+  <line x1="650" y1="150" x2="600" y2="200" stroke="#00ffff" stroke-width="2" opacity="0.3"/>
+  <line x1="600" y1="200" x2="700" y2="250" stroke="#00ffff" stroke-width="2" opacity="0.3"/>
+  
+</svg>
